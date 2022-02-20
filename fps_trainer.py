@@ -87,7 +87,7 @@ def actie_label_a():
     
     hoofd_scherm.bind("a",actie_label_w)
     label_a.pack()
-    label_a.place(x=randint(0,300),y=randint(0,300))
+    label_a.place(x=randint(50,300),y=randint(50,300))
     
     
 # ============================================{-def actie label a-}================================================
@@ -105,7 +105,7 @@ def actie_label_w(event):
     
     hoofd_scherm.bind("w",actie_label_s)
     label_w.pack() 
-    label_w.place(x=randint(0,300),y=randint(0,300))
+    label_w.place(x=randint(50,300),y=randint(50,300))
 
 # ================================================={-def actie label w-}==============================================
 
@@ -121,7 +121,7 @@ def actie_label_s(event):
     
     hoofd_scherm.bind("s",actie_label_d)
     label_s.pack() 
-    label_s.place(x=randint(0,300),y=randint(0,300))
+    label_s.place(x=randint(50,300),y=randint(50,300))
 
 # ==================================================={-def sctie label s-}===================================
 def actie_label_d(event):
@@ -136,7 +136,7 @@ def actie_label_d(event):
     
     hoofd_scherm.bind("d",actie_label_onclick)
     label_d.pack() 
-    label_d.place(x=randint(0,300),y=randint(0,300))
+    label_d.place(x=randint(50,300),y=randint(50,300))
 
 # ========================================={-def actie label d-}======================================================
 
@@ -153,7 +153,7 @@ def actie_label_onclick(event):
     
 
     label_onclick.pack() 
-    label_onclick.place(x=randint(0,300),y=randint(0,300))
+    label_onclick.place(x=randint(50,300),y=randint(50,300))
 
 # ========================================{-actie label dubbel click-}=======================
 def actie_label_dubbel_click(event):
@@ -169,7 +169,7 @@ def actie_label_dubbel_click(event):
     
 
     label_dubbel_click.pack() 
-    label_dubbel_click.place(x=randint(0,300),y=randint(0,300)) 
+    label_dubbel_click.place(x=randint(50,300),y=randint(50,300)) 
 
 #=============================================================================================
 
@@ -210,8 +210,15 @@ while tijd > 0:
         label_tijd.configure(bg="orange")
 
     if tijd == 0:
-        messagebox.showinfo("de tijs is om ", "uw heeft " + str(punten[0])+ " punten")
-        exit()
+        berichten = messagebox.askyesno("de tijs is om ", "uw heeft " + str(punten[0])+ " punten" + " wilt u nog een keer : ?")
+        if berichten == True:
+            tijd = 30
+            label_tijd.configure(bg="white")
+            actie_label_a()
+        else:
+            exit()    
+            
+        
 
 hoofd_scherm.mainloop()
 
